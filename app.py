@@ -165,9 +165,11 @@ def generate_answer(question, openAI_key):
               "don't add any additional information. Make sure the answer is correct and don't output false content. "\
               "If the text does not relate to the query, simply state 'Text Not Found in PDF'. Ignore outlier "\
               "search results which has nothing to do with the question. Only answer what is asked. The "\
-              "answer should be short and concise. Answer step-by-step. \n\n Query: {question}\nAnswer: "
-
+              "answer should be short and concise. Answer step-by-step."
+    prompt += f"\n\n Query: {question}\nAnswer:"
+    print(prompt)
     answer = generate_text2(openAI_key, prompt)
+    print(answer)
     return answer
 
 
